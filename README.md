@@ -1,108 +1,128 @@
-# 🚀 Playwright + Cucumber BDD Automation Framework
-
----
+# 🚀 Email OTP Automation using Gmail API
 
 ## 📌 Overview
 
-This repository contains a scalable and maintainable **End-to-End Test Automation Framework** developed using:
+This project automates the process of fetching **One-Time Passwords (OTP)** from Gmail using the **Gmail API** and integrates it with test automation workflows.
 
-- 🎭 **Playwright** – UI Automation Engine  
-- 🥒 **Cucumber** – Behavior Driven Development (BDD)  
-- 🧱 **Page Object Model (POM)** – Design Pattern  
-- 🌍 **Dotenv** – Environment Configuration  
-- 🧪 **Node.js** – JavaScript Runtime  
-
-The framework automates the DemoQA Practice Form application:
-
-🔗 https://demoqa.com/automation-practice-form  
-
-This project demonstrates real-world automation architecture aligned with industry best practices and scalable test design principles.
+It eliminates manual OTP entry by dynamically reading emails and extracting OTP codes in real time.
 
 ---
 
-## 🏗 Framework Architecture
+## 🛠 Tech Stack
 
-The framework is designed using the **Page Object Model (POM)** pattern to ensure:
-
-- ✔ Separation of concerns  
-- ✔ Reusability of code  
-- ✔ Easy maintenance  
-- ✔ Improved readability  
-- ✔ Scalable test structure  
-
+* 🧪 **Node.js** – Runtime environment
+* 📩 **Gmail API (Google APIs)** – Email access
+* 🔐 **OAuth2 Authentication** – Secure access
+* 🌍 **dotenv** – Environment configuration
+* 📜 **TypeScript / JavaScript** – Implementation
 
 ---
 
-## 📂 Project Structure Explanation
+## 🎯 Objective
 
-### 📁 `features/`
-
-Contains BDD test scenarios written in **Gherkin syntax**.
-
-- Defines business-level behavior  
-- Written in plain English  
-- Improves collaboration between QA & stakeholders  
-- Focuses on "what" the system should do  
+* Automate OTP retrieval from email
+* Reduce manual intervention in test flows
+* Improve reliability of login/verification testing
+* Enable end-to-end automation
 
 ---
 
-### 📁 `step_definitions/`
+## 🔄 Workflow
 
-Maps feature steps to automation logic.
-
-- Connects Gherkin steps to Playwright code  
-- Calls reusable methods from Page Objects  
-- Maintains clean and readable test flow  
-- Handles assertions and validations  
-
----
-
-### 📁 `pages/`
-
-Implements the **Page Object Model (POM)** design pattern.
-
-- Stores locators  
-- Contains reusable page actions  
-- Encapsulates UI interaction logic  
-- Reduces code duplication  
-- Improves maintainability  
+1️⃣ Authenticate using Gmail OAuth2 credentials
+2️⃣ Connect to Gmail inbox via API
+3️⃣ Filter recent emails using query parameters
+4️⃣ Extract email content
+5️⃣ Parse OTP using regex
+6️⃣ Return OTP for automation use
 
 ---
 
-### 📁 `support/`
+## 📂 Project Structure
 
-Contains Hooks configuration and test lifecycle management.
-
-- Browser setup (Before hook)  
-- Browser teardown (After hook)  
-- Timeout configuration  
-- Shared test context handling  
-
----
-
-### 🌍 `.env`
-
-Stores environment-specific configuration such as:
-
-- `BASE_URL`  
-- Credentials  
-- Configurable test inputs  
-
-This improves flexibility, security, and environment management.
+```id="otp002"
+project-root/
+│── src/
+│   ├── fetchOtp.ts      # Main OTP fetching logic
+│── .env                 # Environment variables
+│── package.json
+│── README.md
+```
 
 ---
 
-## 🎯 Key Highlights
+## ⚙️ Setup
 
-- Modular Framework Design  
-- Clean Code Structure  
-- Async/Await Implementation  
-- Reusable Page Methods  
-- Structured Test Lifecycle  
-- Industry-Standard Automation Architecture  
+### 1️⃣ Install Dependencies
+
+```bash id="otp003"
+npm install
+```
 
 ---
 
+### 2️⃣ Configure Environment Variables
 
+Create a `.env` file:
 
+```env id="otp004"
+GMAIL_CLIENT_ID=your_client_id
+GMAIL_CLIENT_SECRET=your_client_secret
+GMAIL_REDIRECT_URI=your_redirect_uri
+GMAIL_REFRESH_TOKEN=your_refresh_token
+```
+
+---
+
+### 3️⃣ Enable Gmail API
+
+* Go to Google Cloud Console
+* Enable **Gmail API**
+* Generate OAuth credentials
+* Get refresh token
+
+---
+
+## ▶️ Usage
+
+Run the OTP fetch script:
+
+```bash id="otp005"
+npm start
+```
+
+---
+
+## 📊 Key Features
+
+* 🔍 Fetches only recent emails
+* ⏳ Retry mechanism with polling
+* 📩 Supports spam/trash scanning
+* 🔐 Secure OAuth2 authentication
+* ⚡ Fast OTP extraction using regex
+
+---
+
+## 🧠 How OTP is Extracted
+
+* Reads email body (base64 decoded)
+* Searches for numeric patterns (4–6 digits)
+* Returns first matching OTP
+
+---
+
+## ✨ Use Cases
+
+* Login automation
+* OTP verification flows
+* End-to-end testing
+* CI/CD automation pipelines
+
+---
+
+## 👨‍💻 Author
+
+**Bharath**
+
+---
 
