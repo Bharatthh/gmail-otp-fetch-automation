@@ -1,4 +1,4 @@
-name: Playwright cucumber Tests
+name: Email OTP Fetch Automation Tests
 on:
   #Trigger when code is pushed to main or master
   push:
@@ -30,16 +30,13 @@ jobs:
     # Create .env file dynamically using GitHub Secrets & Variables
     - name: Create .env file
       run: |
-          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
-          echo "FIRSTNAME=${{ vars.FIRSTNAME }}" >> .env
-          echo "LASTNAME=${{ vars.LASTNAME }}" >> .env
+          echo "URL=${{ secrets.URL }}" >> .env
           echo "EMAIL=${{ secrets.EMAIL }}" >> .env
-          echo "MOBILE_NUMBER=${{ secrets.MOBILE_NUMBER }}" >> .env
-          echo "BIRTH_DATE=${{ vars.BIRTH_DATE }}" >> .env
-          echo "BIRTH_MONTH=${{ vars.BIRTH_MONTH }}" >> .env
-          echo "BIRTH_YEAR=${{ vars.BIRTH_YEAR }}" >> .env
-          echo "FILL_SUBJECT=${{ vars.FILL_SUBJECT }}" >> .env
-          echo "FILL_ADDRESS=${{ vars.FILL_ADDRESS }}" >> .env
+          echo "GMAIL_CLIENT_ID=${{ secrets.GMAIL_CLIENT_ID }}" >> .env
+          echo "GMAIL_CLIENT_SECRET=${{ secrets.GMAIL_CLIENT_SECRET }}" >> .env
+          echo "GMAIL_REDIRECT_URI=${{ secrets.GMAIL_REDIRECT_URI }}" >> .env
+          echo "GMAIL_REFRESH_TOKEN=${{ secrets.GMAIL_REFRESH_TOKEN }}" >> .env   
+
 
 
 
@@ -48,7 +45,7 @@ jobs:
 
 
     - name: Run cucumber tests
-      run: npm  test
+      run: npm test
       env:
         HEADLESS: 'true'
     # Upload reports as GitHub Artifact (Downloadable from Actions tab)
@@ -68,13 +65,18 @@ jobs:
         secure: true
         username: ${{ secrets.EMAIL }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: "Playwright Cucumber Test Report"
+        subject: "NRL Automation Test Report"
         body: |
           Hello,
           
-          The scheduled automation test execution has completed.
           
-          Please find the attached HTML report.
+          The CI execution for the Email OTP Fetch Automation project has completed.
+
+          ✔ Execution Type: Scheduled / CI Trigger  
+          ✔ Status: Completed  
+          ✔ Environment: QA  
+
+          Please find the attached test report for detailed results.
           
           Regards,
           GitHub Actions

@@ -1,0 +1,80 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "nrl-email-otp-signup;user-signup-with-email-otp",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "User signup with email OTP",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1071209100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I open NRL signup page",
+            "match": {
+              "location": "src\\step-definitions\\login.step.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2510771900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I enter valid email and submit",
+            "match": {
+              "location": "src\\step-definitions\\login.step.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1661876799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I Fetch OTP and Complete signup",
+            "match": {
+              "location": "src\\step-definitions\\login.step.ts:32"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 60023653399,
+              "error_message": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (C:\\Users\\SST\\Desktop\\email_otp\\node_modules\\@cucumber\\cucumber\\src\\time.ts:52:14)\n    at listOnTimeout (node:internal/timers:605:17)\n    at processTimers (node:internal/timers:541:7)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 463313399
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "nrl-email-otp-signup",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "NRL Email OTP Signup",
+    "tags": [],
+    "uri": "src\\features\\login.feature"
+  }
+]
