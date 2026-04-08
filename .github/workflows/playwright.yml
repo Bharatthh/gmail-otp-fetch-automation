@@ -6,8 +6,8 @@ on:
   #Trigger when pull request is created
   pull_request:
     branches: [ main, master ]
-  schedule:
-    - cron: '30 3 * * *'
+  # schedule:
+  #   - cron: '30 3 * * *'
 jobs:
   test:
     # Job will stop if it runs more than 60 minutes
